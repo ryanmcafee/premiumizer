@@ -9,7 +9,7 @@ RUN find /usr/local/lib/python3.7/site-packages -mindepth 1 -maxdepth 1 > /filel
     && apt-get install tzdata
     
 FROM python:3.7-alpine
-RUN apk --no-cache add shadow \
+RUN apk --no-cache add shadow ffmpeg \
     && addgroup -S -g 6006 premiumizer \
     && adduser -S -D -u 6006 -G premiumizer -s /bin/sh premiumizer
 COPY --from=0 /usr/local/lib/python3.7/site-packages /usr/local/lib/python3.7/site-packages/
